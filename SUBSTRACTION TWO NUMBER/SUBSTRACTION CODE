@@ -1,0 +1,33 @@
+section .data
+	num1 db 5    
+	num2 db 3  	 
+	result db 0
+	newline db 10
+
+section .text
+	global _start
+
+_start:
+
+	mov al, [num1]   
+	sub al, [num2]   
+    
+	add al, '0'
+
+	mov [result], al
+
+	mov eax,4
+	mov ebx,1
+	mov ecx, result
+	mov edx,1
+	int 80h
+    
+	mov eax,4
+	mov ebx,1
+	mov ecx, newline
+	mov edx,1
+	int 80h
+    
+mov eax,1
+mov ebx,ebx
+int 80h
