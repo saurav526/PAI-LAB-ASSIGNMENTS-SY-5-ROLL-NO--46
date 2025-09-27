@@ -1,0 +1,14 @@
+gedit hello.asm
+write code
+nasm -f elf32 hello.asm
+ld -m elf_i386 hello.o -o hello
+./hello
+gdb ./hello
+In (gdb)
+break _start
+run
+set disassembly-flavor intel
+disassemble _start
+layout asm
+layout regs
+nexti
