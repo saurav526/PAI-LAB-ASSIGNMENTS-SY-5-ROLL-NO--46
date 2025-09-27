@@ -1,0 +1,27 @@
+section .data
+    name1 db " SAURAV", 10
+    len1  equ $ - name1 
+            
+    name2  db "KUMAR", 10        
+    len2   equ $ - name2    
+
+section .text
+    global _start
+
+_start:
+    
+    mov eax, 4            
+    mov ebx, 1            
+    mov ecx, name1  
+    mov edx, len1 
+    int 80h
+
+    mov eax, 4            
+    mov ebx, 1            
+    mov ecx, name2    
+    mov edx, len2     
+    int 80h
+
+    mov eax, 1            
+    xor ebx, ebx          
+    int 80h
